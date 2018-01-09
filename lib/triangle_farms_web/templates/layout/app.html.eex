@@ -9,27 +9,40 @@
 
     <title>Hello TriangleFarms!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
+    <header id="header">
+      <div class="container">
+        <div class="brand">
+          <h1>Triangle Farm Hub</h1>
+          <span class="tagline">Your online resource for all things farm, food and local in The Triangle</span>
+        </div>
         <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+          <ul>
+            <li class="active">
+              <a href="<%= page_path(@conn, :index) %>">
+                <h3>Event Calendar</h3>
+                <span class="summary">See upcoming farmer markets and other farm related events</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h3>CSA Finder</h3>
+                <span class="summary">Search for CSAs taking on new members right now</span>
+              </a>
+            </li>
           </ul>
         </nav>
-        <span class="logo"></span>
-      </header>
+      </div>
+    </header>
+    <div class="banner"></div>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+    <main role="main">
+    <%= render @view_module, @view_template, assigns %>
+    </main>
 
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-
-    </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
