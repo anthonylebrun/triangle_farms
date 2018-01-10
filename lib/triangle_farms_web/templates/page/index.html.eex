@@ -1,6 +1,10 @@
 <div class="container">
-  <div class="alert clearfix">
-    <div class="message pull-left">Do you know of an event that belongs in this calendar? Please let us know!</div>
-    <a class="btn pull-right" href="#">Submit an Event</a>
+  <div class="level notification is-primary is-thin">
+    <div class="level-left">
+      <div class="level-item is-size-5">Do you know of an event that belongs in this calendar? Please let us know!</div>
+    </div>
+    <div class="level-right">
+      <a class="level-item button is-primary" href="#">Submit an Event</a>
+    </div>
   </div>
 </div>

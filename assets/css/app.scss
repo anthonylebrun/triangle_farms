@@ -1,153 +1,64 @@
-/* This file is for your main application css. */
+$primary: #51B473;
+$family-primary: Lato, sans-serif;
 
-$primary-brand: #51B473;
+@import "node_modules/font-awesome/scss/font-awesome";
+@import "node_modules/bulma/bulma.sass";
 
-html, body {
-  font-family: 'Lato', sans-serif;
+* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #4A4A4A;
 }
 
 .container {
-  margin: auto;
-  max-width: 1200px;
-  padding-left: 15px;
-  padding-right: 10px;
+  max-width: 1000px;
 }
 
-#header {
-  .container {
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-
-    .brand {
-      display: flex;
-      justify-content: space-around;
-
-      h1 {
-        font-size: 20px;
-        margin: 0px;
-        padding-top: 27px;
-        padding-bottom: 27px;
-      }
-
-      .tagline {
-        max-width: 250px;
-        font-size: 16px;
-        color: #CDCDCD;
-        padding: 20px;
-      }
+.navbar {
+  .navbar-item {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .navbar-brand {
+    .subtitle {
+      color: $grey-light;
+      max-width: 250px;
     }
+  }
+  .navbar-menu {
+    .navbar-item {
+      max-width: 200px;
+      line-height: 0.85rem;
+      border-left: 1px solid $grey-lighter;
 
-    nav ul {
-      display: flex;
-      justify-content: space-around;
-      list-style-type: none;
-      padding: 0px;
-      margin: 0px;
-
-      li {
-        position: relative;
-        max-width: 200px;
-        border-left: 1px solid #E4E4E4;
-
-        &:last-child {
-          border-right: 1px solid #E4E4E4;
-        }
-
-        a {
-          display: block;
-          padding: 15px;
-          text-decoration: none;
-          color: #737373;
-
-          &:visited {
-            color: #737373;
-          }
-
-          h3 {
-            margin: 0px;
-            font-size: 13px;
-            color: $primary-brand;
-          }
-
-          .summary {
-            font-size: 12px;
-          }
-
-          &:hover {
-            h3 { color: darken($primary-brand, 20%) }
-            .summary { color: darken(#737373, 20%) }
-          }
-        }
-
-        &.active::before {
-          content: '';
-          position: absolute;
-          left: 40%;
-          top: 100%;
-          width: 0;
-          height: 0;
-          border-left: 10px solid transparent;
-          border-right: 10px solid transparent;
-          border-top: 10px solid white;
-          clear: both;
-        }
+      &:last-child {
+        border-right: 1px solid $grey-lighter;
+      }
+      .title.is-6 {
+        color: $primary;
+        margin-bottom: 3px;
+        font-size: 0.85rem;
+      }
+      .summary {
+        color: $grey;
+        font-size: $size-7;
       }
     }
   }
 }
 
 .banner {
-  background: url("/images/pretty_banner.png");
-  max-width: 100%;
-  min-height: 80px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+  height: 80px;
+  width: 100%;
+  background: url('/images/pretty_banner.png') no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+  margin-bottom: 30px;
 }
 
-.alert {
-  padding: 12px 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 1px solid $primary-brand;
-  border-radius: 4px;
-  font-size: 18px;
-
-  .message {
-    padding-top: 7px;
-    padding-bottom: 7px;
-  }
+.notification.is-primary.is-thin {
+  border: 1px solid $primary;
+  background: transparent;
+  color: inherit;
 }
 
-.pull-right {
-  float: right;
-}
 
-.pull-left {
-  float: left;
-}
-
-.btn {
-  background: $primary-brand;
-  color: white;
-  font-size: 14px;
-  padding: 10px 40px;
-  border-radius: 4px;
-  text-decoration: none;
-
-  &:hover {
-    background: darken($primary_brand, 20%);
-  }
-}
-
-.clearfix:after { 
-  content: "."; 
-  visibility: hidden; 
-  display: block; 
-  height: 0; 
-  clear: both;
-}

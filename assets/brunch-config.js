@@ -37,7 +37,17 @@ exports.config = {
   // Phoenix paths configuration
   paths: {
     // Dependencies and current project directories to watch
-    watched: ["static", "css", "js", "vendor"],
+    watched: [
+      "static",
+      "css",
+      "js",
+      "vendor",
+      "node_modules/font-awesome/fonts/fontawesome-webfont.eot",
+      "node_modules/font-awesome/fonts/fontawesome-webfont.svg",
+      "node_modules/font-awesome/fonts/fontawesome-webfont.ttf",
+      "node_modules/font-awesome/fonts/fontawesome-webfont.woff",
+      "node_modules/font-awesome/fonts/fontawesome-webfont.woff2"
+    ],
     // Where to compile files to
     public: "../priv/static"
   },
