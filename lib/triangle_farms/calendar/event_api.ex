@@ -1,9 +1,14 @@
 defmodule TriangleFarms.Calendar.EventAPI do
   alias TriangleFarms.Calendar.EventAPI.Client
+  alias TriangleFarms.Calendar.Time
 
   def new do
-    {:ok, client} = Client.authorize
-    client
+    case Client.authorize do
+      {:ok, client} ->
+        client
+      {:error, msg} ->
+        # Do error handling
+    end
   end
 
   def by_month(client, month, year) do
@@ -13,8 +18,8 @@ defmodule TriangleFarms.Calendar.EventAPI do
 
   defp calculate_month_boundaries(month, year) when is_integer(month) and is_integer(year) do
     strfmonth = month |> Integer.to_string |> String.pad_leading(2, "0")
-    min = Timex.parse!("#{year}-#{strfmonth}-01T00:00:00-05:00", "{RFC3339}")
-    max = Timex.shift(min, months: 1, seconds: -1)
-    {Timex.format!(min, "{RFC3339}"), Timex.format!(max, "{RFC3339}")}
+    min = Time.parse("#{year}-#{strfmonth}-01T00:00:00-05:00")
+    max = Time.shift(min, months: 1, seconds: -1)
+    {Time.format(min), Time.format(max)}
   end
 end
