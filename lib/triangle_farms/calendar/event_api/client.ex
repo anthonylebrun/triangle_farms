@@ -13,10 +13,8 @@ defmodule TriangleFarms.Calendar.EventAPI.Client do
   def authorize do
     with %{body: body} <- HTTPoison.post!(@aud, token_params()) do
       case Poison.decode!(body) do
-        %{"access_token" => token} ->
-          {:ok, %Client{token: token}}
-        %{"error_description" => msg} ->
-          {:error, msg}
+        %{"access_token" => token} -> {:ok, %Client{token: token}}
+        %{"error_description" => msg} -> {:error, msg}
       end
     end
   end

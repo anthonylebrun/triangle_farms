@@ -3,12 +3,8 @@ defmodule TriangleFarms.Calendar.EventAPI do
   alias TriangleFarms.Calendar.Time
 
   def new do
-    case Client.authorize do
-      {:ok, client} ->
-        client
-      {:error, msg} ->
-        # Do error handling
-    end
+    {:ok, client} = Client.authorize
+    client
   end
 
   def by_month(client, month, year) do
