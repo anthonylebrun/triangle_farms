@@ -10,6 +10,6 @@ defmodule TriangleFarms.Calendar.Time do
   end
 
   def format(to_format, format \\ @format) do
-    Timex.format!(to_parse, format)
+    Timex.format!(to_format, format)
   end
 end
