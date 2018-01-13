@@ -2,7 +2,7 @@ defmodule TriangleFarms.Calendar.Time do
   @format "{RFC3339}"
 
   defdelegate now, to: Timex
-  defdelegate shift(t), to: Timex
+  defdelegate shift(t, opts), to: Timex
   defdelegate to_unix(t), to: Timex
 
   def parse(to_parse, format \\ @format) do
