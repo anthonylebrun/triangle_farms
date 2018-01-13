@@ -2,7 +2,7 @@ defmodule TriangleFarms.Calendar.EventAPI.Client do
   defstruct token: nil
 
   alias __MODULE__
-  alias TriangleFarms.Calendar.Event
+  alias TriangleFarms.Calendar.{Event, Time}
 
   @iss Application.get_env(:triangle_farms, Client)[:email]
   @scope Application.get_env(:triangle_farms, Client)[:scope]
@@ -13,8 +13,10 @@ defmodule TriangleFarms.Calendar.EventAPI.Client do
   def authorize do
     with %{body: body} <- HTTPoison.post!(@aud, token_params()) do
       case Poison.decode!(body) do
-        %{"access_token" => token} -> {:ok, %Client{token: token}}
-        %{"error_description" => msg} -> {:error, msg}
+        %{"access_token" => token} ->
+          {:ok, %Client{token: token}}
+        %{"error_description" => msg} ->
+          {:error, msg}
       end
     end
   end
@@ -28,9 +30,7 @@ defmodule TriangleFarms.Calendar.EventAPI.Client do
   end
 
   defp expiration_timestamp do
-    Timex.now
-    |> Timex.shift(hours: 1)
-    |> Timex.to_unix
+    Time.now |> Time.shift(hours: 1)|> Time.to_unix
   end
 
   defp signing_key do
@@ -59,8 +59,8 @@ defmodule TriangleFarms.Calendar.EventAPI.Client do
   end
 
   defp to_event(event = %{"summary" => summary, "description" => desc, "location" => loc}) do
-    start_at = event |> get_in(["start", "dateTime"]) |> Timex.parse!("{RFC3339}")
-    end_at = event |> get_in(["end", "dateTime"]) |> Timex.parse!("{RFC3339}")
+    start_at = event |> get_in(["start", "dateTime"]) |> Time.parse
+    end_at = event |> get_in(["end", "dateTime"]) |> Time.parse
     %Event{
       name: summary,
       description: desc,
