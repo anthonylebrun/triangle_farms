@@ -28,3 +28,6 @@ npm-debug.log
 
 # Useless OSX system files
 .DS_Store
+
+# Ignore vim swp files
+.swp
