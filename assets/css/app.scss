@@ -33,11 +33,13 @@ $family-primary: Lato, sans-serif;
       &:last-child {
         border-right: 1px solid $grey-lighter;
       }
+
       .title.is-6 {
         color: $primary;
         margin-bottom: 3px;
         font-size: 0.85rem;
       }
+
       .summary {
         color: $grey;
         font-size: $size-7;
@@ -87,55 +89,59 @@ $family-primary: Lato, sans-serif;
       text-transform: uppercase;
       border-bottom: 3px solid $white-bis;
       margin-bottom: 10px;
-      padding-bottom: 50px;
-    }
 
-    .Calendar-header-currentDate {
-      .Calendar-header-currentDate-month {
-        font-weight: bold;
-        margin-right: 5px;
-      }
-      .Calendar-header-currentDate-year {
-        font-weight: lighter;
-      }
-    }
+      .Calendar-header-currentDate {
+	.Calendar-header-currentDate-month {
+	  font-weight: bold;
+	  margin-right: 5px;
+	}
 
-    .Calendar-header button {
-      position: relative;
-      top: 7px;
-      width: 35px;
-      height: 35px;
-      font-size: 20px;
-      font-weight: bold;
-      border: 0;
-      background: lighten($primary, 15%);
-      color: white;
-      cursor: pointer;
-      border-radius: 9999px;
-      outline: none;
-    }
-
-    .Calendar-grid-item {
-      flex: 0 14.28571%;
-      text-align: center;
-      border-right: 2px solid white;
-      border-bottom: 2px solid white;
-      padding: 0.5rem;
-      padding-bottom: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: $white-bis;
-      color: $grey;
-
-      &.Calendar-grid-item--current {
-        background: $secondary;
-        color: white;
+	.Calendar-header-currentDate-year {
+	  font-weight: lighter;
+	}
       }
 
-      &.Calendar-grid-item.nextMonth,
-      &.Calendar-grid-item.prevMonth {
-        color: $grey-lighter;
+      button {
+	position: relative;
+	top: 7px;
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	font-weight: bold;
+	border: 0;
+	background: lighten($primary, 15%);
+	color: white;
+	cursor: pointer;
+	border-radius: 9999px;
+	outline: none;
+      }
+    }
+
+    .Calendar-grid {
+      @extend .is-hidden-mobile;
+
+      .Calendar-grid-item {
+	flex: 0 14.28571%;
+	text-align: center;
+	border-right: 2px solid white;
+	border-bottom: 2px solid white;
+	padding: 0.5rem;
+	padding-bottom: 0.8rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: $white-bis;
+	color: $grey;
+
+	&.Calendar-grid-item--current {
+	  background: $secondary;
+	  color: white;
+	}
+
+	&.Calendar-grid-item.nextMonth,
+	&.Calendar-grid-item.prevMonth {
+	  color: $grey-lighter;
+	}
       }
     }
   }
