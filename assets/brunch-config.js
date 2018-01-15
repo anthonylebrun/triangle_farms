@@ -41,12 +41,7 @@ exports.config = {
       "static",
       "css",
       "js",
-      "vendor",
-      "node_modules/font-awesome/fonts/fontawesome-webfont.eot",
-      "node_modules/font-awesome/fonts/fontawesome-webfont.svg",
-      "node_modules/font-awesome/fonts/fontawesome-webfont.ttf",
-      "node_modules/font-awesome/fonts/fontawesome-webfont.woff",
-      "node_modules/font-awesome/fonts/fontawesome-webfont.woff2"
+      "vendor"
     ],
     // Where to compile files to
     public: "../priv/static"
@@ -55,6 +50,7 @@ exports.config = {
   // Configure your plugins
   plugins: {
     babel: {
+      presets: ["es2015", "react"],
       // Do not use ES6 compiler in vendor code
       ignore: [/vendor/]
     },
@@ -71,6 +67,7 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+    whitelist: ["phoenix", "phoenix_html", "react", "react-dom"]
   }
 };

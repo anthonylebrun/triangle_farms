@@ -1,7 +1,7 @@
 $primary: #51B473;
+$secondary: #F2484B;
 $family-primary: Lato, sans-serif;
 
-@import "node_modules/font-awesome/scss/font-awesome";
 @import "node_modules/bulma/bulma.sass";
 
 * {
@@ -46,12 +46,13 @@ $family-primary: Lato, sans-serif;
   }
 }
 
-.banner {
+#banner {
   height: 80px;
   width: 100%;
   background: url('/images/pretty_banner.png') no-repeat;
   background-position: center;
   background-size: auto 100%;
+  background-color: $grey-dark;
   margin-bottom: 30px;
 }
 
@@ -61,4 +62,81 @@ $family-primary: Lato, sans-serif;
   color: inherit;
 }
 
+#eventSearch {
+  margin-top: 30px;
 
+  #calendar {
+    max-width: 320px;
+    height: 480px;
+    margin: 0px auto;
+
+    .Calendar-grid {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .Calendar-header {
+      height: 50px;
+      color: $grey;
+      text-align: center;
+      line-height: 50px;
+      display: flex;
+      font-size: 20px;
+      justify-content: space-between;
+      text-transform: uppercase;
+      border-bottom: 3px solid $white-bis;
+      margin-bottom: 10px;
+      padding-bottom: 50px;
+    }
+
+    .Calendar-header-currentDate {
+      .Calendar-header-currentDate-month {
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      .Calendar-header-currentDate-year {
+        font-weight: lighter;
+      }
+    }
+
+    .Calendar-header button {
+      position: relative;
+      top: 7px;
+      width: 35px;
+      height: 35px;
+      font-size: 20px;
+      font-weight: bold;
+      border: 0;
+      background: lighten($primary, 15%);
+      color: white;
+      cursor: pointer;
+      border-radius: 9999px;
+      outline: none;
+    }
+
+    .Calendar-grid-item {
+      flex: 0 14.28571%;
+      text-align: center;
+      border-right: 2px solid white;
+      border-bottom: 2px solid white;
+      padding: 0.5rem;
+      padding-bottom: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: $white-bis;
+      color: $grey;
+
+      &.Calendar-grid-item--current {
+        background: $secondary;
+        color: white;
+      }
+
+      &.Calendar-grid-item.nextMonth,
+      &.Calendar-grid-item.prevMonth {
+        color: $grey-lighter;
+      }
+    }
+  }
+}
