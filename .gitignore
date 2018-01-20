@@ -30,4 +30,4 @@ npm-debug.log
 .DS_Store
 
 # Ignore vim swp files
-.swp
+*.swp
