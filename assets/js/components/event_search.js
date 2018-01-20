@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import EventCalendar from 'js/components/event_calendar'
+import EventList from 'js/components/event_list'
 import { now, keyify } from 'js/date_helpers'
 
 let initialState = {
@@ -39,6 +40,7 @@ export default class EventSearch extends Component {
           <EventCalendar onChangeMonth={onChangeMonth} date={this.state.date} />
         </div>
         <div id="events" className="column">
+          <EventList events={this.state.events} filters={this.state.filters} date={this.state.date} />
         </div>
       </div>
     );
