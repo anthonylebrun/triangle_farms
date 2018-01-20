@@ -2,7 +2,7 @@ defmodule TriangleFarms.Calendar.EventAPI do
   alias TriangleFarms.Calendar.EventAPI.Client
   alias TriangleFarms.Calendar.Time
 
-  def new do
+  def new! do
     {:ok, client} = Client.authorize
     client
   end
