@@ -2,7 +2,7 @@ defmodule TriangleFarms.Calendar.EventAPI.Client do
   defstruct token: nil
 
   alias __MODULE__
-  alias TriangleFarms.Calendar.{Event, Time}
+  alias TriangleFarms.Calendar.Time
 
   @iss Application.get_env(:triangle_farms, Client)[:email]
   @scope Application.get_env(:triangle_farms, Client)[:scope]
@@ -24,7 +24,7 @@ defmodule TriangleFarms.Calendar.EventAPI.Client do
       "https://www.googleapis.com/calendar/v3/calendars/#{@calendar}/events",
       ["Authorization": "Bearer #{token}"],
       params: params
-    ) |> to_events
+    ) |> parse_response()
   end
 
   defp expiration_timestamp do
@@ -56,22 +56,9 @@ defmodule TriangleFarms.Calendar.EventAPI.Client do
     }
   end
 
-  defp to_event(event = %{"summary" => summary, "description" => desc, "location" => loc}) do
-    start_at = event |> get_in(["start", "dateTime"]) |> Time.parse
-    end_at = event |> get_in(["end", "dateTime"]) |> Time.parse
-    %Event{
-      name: summary,
-      description: desc,
-      location: loc,
-      start_at: start_at,
-      end_at: end_at
-    }
-  end
-
-  defp to_events(response) do
+  defp parse_response(response) do
     response.body
     |> Poison.decode!
     |> Map.get("items")
-    |> Enum.map(&to_event/1)
   end
 end
