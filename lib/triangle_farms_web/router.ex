@@ -14,13 +14,12 @@ defmodule TriangleFarmsWeb.Router do
   end
 
   scope "/", TriangleFarmsWeb do
-    pipe_through :browser # Use the default browser stack
-
+    pipe_through :browser
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", TriangleFarmsWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", TriangleFarmsWeb do
+    pipe_through :api
+    get "/events", EventController, :index
+  end
 end
