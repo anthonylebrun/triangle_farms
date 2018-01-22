@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getYear, getMonth } from 'js/date_helpers';
+import groupBy from 'lodash/groupBy';
 
 export default class EventList extends Component {
   render() {

@@ -5,13 +5,26 @@ import { getYear, getMonth } from 'js/date_helpers';
 export default class EventCalendar extends Component {
   render() {
     let headerMarkup = ({ date, onPrevMonth, onNextMonth }) => (
-      <div className="Calendar-header">
-        <button onClick={onPrevMonth}>«</button>
-        <div className="Calendar-header-currentDate">
-          <span className="Calendar-header-currentDate-month">{getMonth(date)}</span>
-          <span className="Calendar-header-currentDate-year">{getYear(date)}</span>
+      <div>
+        <div className="Calendar-header">
+          <button onClick={onPrevMonth}>«</button>
+          <div className="Calendar-header-currentDate">
+            <span className="Calendar-header-currentDate-month">{getMonth(date)}</span>
+            <span className="Calendar-header-currentDate-year">{getYear(date)}</span>
+          </div>
+          <button onClick={onNextMonth}>»</button>
         </div>
-        <button onClick={onNextMonth}>»</button>
+        <div className="Calendar-grid-header">
+          <div className="Calendar-grid">
+            <div className="Calendar-grid-item">Sun</div>
+            <div className="Calendar-grid-item">Mon</div>
+            <div className="Calendar-grid-item">Tue</div>
+            <div className="Calendar-grid-item">Wed</div>
+            <div className="Calendar-grid-item">Thu</div>
+            <div className="Calendar-grid-item">Fri</div>
+            <div className="Calendar-grid-item">Sat</div>
+          </div>
+        </div>
       </div>
     );
 
