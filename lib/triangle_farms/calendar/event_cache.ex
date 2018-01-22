@@ -4,12 +4,12 @@ defmodule TriangleFarms.Calendar.EventCache do
 
   def by_month(month, year) do
     ConCache.get_or_store(EventCache, "#{month}-#{year}", fn ->
-      EventAPI.new |> EventAPI.by_month(month, year)
+      EventAPI.new! |> EventAPI.by_month(month, year)
     end)
   end
 
   def clear do
-    EventCache |> :ets.tab2list |> delete_keys
+    EventCache |> ConCache.ets |> :ets.tab2list |> delete_keys
   end
 
   def delete(key) do
