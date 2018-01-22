@@ -1,7 +1,7 @@
 defmodule TriangleFarms.Calendar do
-  alias TriangleFarms.Calendar.EventAPI
+  alias TriangleFarms.Calendar.EventCache
 
   def list_events_by_month(month, year) do
-    EventAPI.new! |> EventAPI.by_month(month, year)
+    EventCache.by_month(month, year)
   end
 end
