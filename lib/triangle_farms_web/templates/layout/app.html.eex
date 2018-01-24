@@ -36,7 +36,7 @@
                 <span class="summary">See upcoming farmer markets and other farm related events</span>
               </a>
             </div>
-            <div class="navbar-item">
+            <div class="navbar-item coming-soon">
               <a href="#">
                 <h3 class="title is-6">CSA Finder</h3>
                 <span class="summary">Search for CSAs taking on new members right now</span>

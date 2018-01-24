@@ -4,6 +4,14 @@ $family-primary: Lato, sans-serif;
 
 @import "node_modules/bulma/bulma.sass";
 
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -37,6 +45,7 @@ main {
   }
   .navbar-menu {
     .navbar-item {
+      position: relative;
       max-width: 200px;
       line-height: 0.85rem;
       border-left: 1px solid $grey-lighter;
@@ -51,6 +60,19 @@ main {
 
       &:last-child {
         border-right: 1px solid $grey-lighter;
+      }
+
+      &.coming-soon::after {
+        opacity: 0.5;
+        content: "coming soon";
+        position: absolute;
+        top: 25px;
+        left: 50px; 
+        background: red;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+        @include rotate(-20deg);
       }
 
       .title.is-6 {
