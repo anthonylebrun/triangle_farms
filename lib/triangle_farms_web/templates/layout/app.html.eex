@@ -52,6 +52,11 @@
       <%= render @view_module, @view_template, assigns %>
     </main>
 
+    <footer>
+      <div class="footer-content is-primary">This site is brought to you by Pierre &amp; small.ag</div>
+      <div class="footer-content is-secondary">Made with love in Durham, NC</div>
+    </footer>
+
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <script>require("js/app").App.run()</script>
   </body>

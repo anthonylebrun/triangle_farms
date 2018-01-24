@@ -4,6 +4,16 @@ $family-primary: Lato, sans-serif;
 
 @import "node_modules/bulma/bulma.sass";
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -192,7 +202,7 @@ $family-primary: Lato, sans-serif;
       padding-bottom: 10px;
       border-bottom: 1px solid $grey-lighter;
     }
-    
+
     .event-item.card {
       box-shadow: none;
 
@@ -229,6 +239,26 @@ $family-primary: Lato, sans-serif;
           font-weight: lighter;
         }
       }
+    }
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: $grey-darker;
+  text-align: center;
+  height: 80px;
+
+  .footer-content {
+    &.is-primary {
+      color: $grey-lighter;
+      font-size: 0.9rem;
+    }
+    &.is-secondary {
+      color: $grey-light;
+      font-size: 0.7rem;
     }
   }
 }
