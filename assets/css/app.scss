@@ -173,10 +173,14 @@ $family-primary: Lato, sans-serif;
 
   .event-group {
     .title {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $grey-lighter;
     }
     
     .event-item.card {
+      box-shadow: none;
+
       &:last-child {
         margin-bottom: 30px;
       }
@@ -186,7 +190,7 @@ $family-primary: Lato, sans-serif;
       }
 
       .card-content {
-        padding: 15px;
+        padding: 10px 0px;
 
         .event-name {
           color: $grey-darker;
@@ -194,7 +198,7 @@ $family-primary: Lato, sans-serif;
         }
 
         .event-details {
-          font-size: 0.7rem;
+          font-size: 0.75rem;
 
           .event-time {
             color: $secondary;
