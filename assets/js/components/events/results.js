@@ -7,21 +7,23 @@ export default class EventResults extends Component {
   render() {
     const { date, events } = this.props
 
-    const month = getMonthName(date),
+    const dateKey = keyify(date),
+          monthlyEvents = events[dateKey] || [],
+          month = getMonthName(date),
           year = getYear(date);
 
-    const header = (text) => {
+    const header = (events, text) => {
+      const verbage = events.length > 0 ? text : "No events found for this month (yet)!"
+
       return (
         <h4 className="subtitle is-5 has-text-weight-normal is-hidden-mobile">
-          {text}
+          {verbage}
         </h4>
       );
     };
 
     const renderEventsByDayView = (events, date) => {
-      const monthlyEvents = events[keyify(date)];
-
-      const futureEventsOnly = filter(monthlyEvents, (event) => {
+      const futureEventsOnly = filter(events, (event) => {
         return parseDate(event.start_at) > today();
       });
 
@@ -40,8 +42,8 @@ export default class EventResults extends Component {
 
     return (
       <div>
-        {header(`Showing upcoming events for ${month} ${year}`)}
-        {renderEventsByDayView(events, date)}
+        {header(monthlyEvents, `Showing upcoming events for ${month} ${year}`)}
+        {renderEventsByDayView(monthlyEvents, date)}
       </div>
     );
   }

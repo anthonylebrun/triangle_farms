@@ -163,6 +163,10 @@ main {
       cursor: pointer;
       border-radius: 9999px;
       outline: none;
+
+      &.is-disabled {
+        background: $grey-lighter;
+      }
     }
   }
 

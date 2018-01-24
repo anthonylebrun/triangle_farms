@@ -12,6 +12,10 @@ export const today = () => {
   return moment().startOf('day');
 }
 
+export const thisMonth = () => {
+  return moment().startOf('month');
+}
+
 export const getYear = (date) => {
   return date.format('Y');
 }

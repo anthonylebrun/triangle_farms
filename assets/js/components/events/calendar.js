@@ -1,18 +1,27 @@
 import React, { Component } from 'react'
 import { Calendar } from 'react-calendar-component'
-import { getYear, getMonthName } from 'js/time_helpers'
+import { thisMonth, getYear, getMonthName } from 'js/time_helpers'
 
 export default class EventCalendar extends Component {
   render() {
+
+    const prevMonthButton = (date, onPrevMonth) => {
+      if (date > thisMonth()) {
+        return <button onClick={onPrevMonth}>&laquo;</button>;
+      } else {
+        return <button className="is-disabled">&laquo;</button>;
+      }
+    };
+
     const headerMarkup = ({ date, onPrevMonth, onNextMonth }) => (
       <div>
         <div className="Calendar-header">
-          <button onClick={onPrevMonth}>«</button>
+          {prevMonthButton(date, onPrevMonth)}
           <div className="Calendar-header-currentDate">
             <span className="Calendar-header-currentDate-month">{getMonthName(date)}</span>
             <span className="Calendar-header-currentDate-year">{getYear(date)}</span>
           </div>
-          <button onClick={onNextMonth}>»</button>
+          <button onClick={onNextMonth}>&raquo;</button>
         </div>
         <div className="Calendar-grid-header">
           <div className="Calendar-grid">
