@@ -16,6 +16,7 @@ defmodule TriangleFarmsWeb.Router do
   scope "/", TriangleFarmsWeb do
     pipe_through :browser
     get "/", PageController, :index
+    get "/reset", EventController, :reset
   end
 
   scope "/api", TriangleFarmsWeb do
