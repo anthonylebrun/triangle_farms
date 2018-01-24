@@ -31,6 +31,14 @@ $family-primary: Lato, sans-serif;
       line-height: 0.85rem;
       border-left: 1px solid $grey-lighter;
 
+      @include until($tablet) {
+        border-left: 0px !important;
+        border-right: 0px !important;
+        border-top: 1px solid $grey-lighter;
+        margin: 0px !important;
+        max-width: 100%;
+      }
+
       &:last-child {
         border-right: 1px solid $grey-lighter;
       }
@@ -71,7 +79,6 @@ $family-primary: Lato, sans-serif;
 
 #calendar {
   max-width: 320px;
-  height: 480px;
   margin: 0px auto;
 
   @include until($tablet) {
@@ -95,6 +102,10 @@ $family-primary: Lato, sans-serif;
     text-transform: uppercase;
     border-bottom: 3px solid $white-bis;
     margin-bottom: 10px;
+
+    @include until($tablet) {
+      border-bottom: 0px;
+    }
 
     .Calendar-header-currentDate {
       .Calendar-header-currentDate-month {
@@ -166,6 +177,10 @@ $family-primary: Lato, sans-serif;
 
 #events {
   padding: 20px;
+
+  @include until($tablet) {
+    padding: 0px 10px;
+  }
 
   .subtitle {
     color: $grey-lighter;
