@@ -74,6 +74,10 @@ $family-primary: Lato, sans-serif;
   height: 480px;
   margin: 0px auto;
 
+  @include until($tablet) {
+    max-width: 100%;
+  }
+
   .Calendar-grid {
     display: flex;
     flex-wrap: wrap;
@@ -162,7 +166,50 @@ $family-primary: Lato, sans-serif;
 
 #events {
   padding: 20px;
+
   .subtitle {
     color: $grey-lighter;
+  }
+
+  .event-group {
+    .title {
+      margin-bottom: 20px;
+    }
+    
+    .event-item.card {
+      &:last-child {
+        margin-bottom: 30px;
+      }
+
+      .media {
+        margin-bottom: 5px;
+      }
+
+      .card-content {
+        padding: 15px;
+
+        .event-name {
+          color: $grey-darker;
+          font-size: 0.9rem;
+        }
+
+        .event-details {
+          font-size: 0.7rem;
+
+          .event-time {
+            color: $secondary;
+            margin-right: 10px;
+          }
+          .event-location {
+            color: $grey-light;
+          }
+        }
+
+        .content {
+          font-size: 0.9rem;
+          font-weight: lighter;
+        }
+      }
+    }
   }
 }

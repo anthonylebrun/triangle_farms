@@ -1,7 +1,7 @@
 import "phoenix_html"
 import { setupBurgerNav } from "./hamburger"
 import React from 'react'
-import EventSearch from './components/event_search'
+import EventSearch from './components/events/search'
 import { render } from 'react-dom'
 
 export var App = {

@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Calendar } from 'react-calendar-component';
-import { getYear, getMonth } from 'js/date_helpers';
+import React, { Component } from 'react'
+import { Calendar } from 'react-calendar-component'
+import { getYear, getMonthName } from 'js/time_helpers'
 
 export default class EventCalendar extends Component {
   render() {
-    let headerMarkup = ({ date, onPrevMonth, onNextMonth }) => (
+    const headerMarkup = ({ date, onPrevMonth, onNextMonth }) => (
       <div>
         <div className="Calendar-header">
           <button onClick={onPrevMonth}>«</button>
           <div className="Calendar-header-currentDate">
-            <span className="Calendar-header-currentDate-month">{getMonth(date)}</span>
+            <span className="Calendar-header-currentDate-month">{getMonthName(date)}</span>
             <span className="Calendar-header-currentDate-year">{getYear(date)}</span>
           </div>
           <button onClick={onNextMonth}>»</button>
