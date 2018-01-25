@@ -49,13 +49,13 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :triangle_farms, TriangleFarms.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: System.get_env("POSTGRESQL_USERNAME"),
-  password: System.get_env("POSTGRESQL_PASSWORD"),
-  database: "triangle_farms_dev",
-  hostname: "localhost",
-  pool_size: 10
+# config :triangle_farms, TriangleFarms.Repo,
+#   adapter: Ecto.Adapters.Postgres,
+#   username: System.get_env("POSTGRESQL_USERNAME"),
+#   password: System.get_env("POSTGRESQL_PASSWORD"),
+#   database: "triangle_farms_dev",
+#   hostname: "localhost",
+#   pool_size: 10
 
 # Configure google api credentials
 config :triangle_farms, TriangleFarms.Calendar.EventAPI.Client,

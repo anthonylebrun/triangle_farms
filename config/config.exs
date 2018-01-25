@@ -6,8 +6,8 @@
 use Mix.Config
 
 # General application configuration
-config :triangle_farms,
-  ecto_repos: [TriangleFarms.Repo]
+# config :triangle_farms,
+#   ecto_repos: [TriangleFarms.Repo]
 
 # Configures the endpoint
 config :triangle_farms, TriangleFarmsWeb.Endpoint,

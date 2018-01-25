@@ -10,10 +10,10 @@ config :triangle_farms, TriangleFarmsWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :triangle_farms, TriangleFarms.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: System.get_env("POSTGRESQL_USERNAME"),
-  password: System.get_env("POSTGRESQL_PASSWORD"),
-  database: "triangle_farms_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+# config :triangle_farms, TriangleFarms.Repo,
+#   adapter: Ecto.Adapters.Postgres,
+#   username: System.get_env("POSTGRESQL_USERNAME"),
+#   password: System.get_env("POSTGRESQL_PASSWORD"),
+#   database: "triangle_farms_test",
+#   hostname: "localhost",
+#   pool: Ecto.Adapters.SQL.Sandbox

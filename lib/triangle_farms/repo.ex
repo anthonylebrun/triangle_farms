@@ -1,5 +1,5 @@
 defmodule TriangleFarms.Repo do
-  use Ecto.Repo, otp_app: :triangle_farms
+  # use Ecto.Repo, otp_app: :triangle_farms
 
   @doc """
   Dynamically loads the repository url from the
