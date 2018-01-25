@@ -45,7 +45,9 @@ defmodule TriangleFarms.Mixfile do
       {:timex, "~> 3.1"},
       {:httpoison, "~> 0.13"},
       {:poison, ">= 1.0.0"},
-      {:con_cache, "~> 0.12.1"}
+      {:con_cache, "~> 0.12.1"},
+      {:edeliver, "~> 1.4.4"},
+      {:distillery, "~> 1.5.2", runtime: false}
     ]
   end
 
