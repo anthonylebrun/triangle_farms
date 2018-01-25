@@ -59,8 +59,8 @@ config :triangle_farms, TriangleFarms.Repo,
 
 # Configure google api credentials
 config :triangle_farms, TriangleFarms.Calendar.EventAPI.Client,
-  email: "admin-332@triangle-farms.iam.gserviceaccount.com",
-  scope: "https://www.googleapis.com/auth/calendar.readonly",
-  audience: "https://www.googleapis.com/oauth2/v4/token",
-  signing_key: System.get_env("GOOGLE_SIGNING_KEY"),
-  calendar: "small.ag_jpual3bce0io357u2bql9jptg4@group.calendar.google.com"
+  email: System.get_env("GCAL_EMAIL"),
+  scope: System.get_env("GCAL_SCOPE"),
+  audience: System.get_env("GCAL_AUDIENCE"),
+  signing_key: System.get_env("GCAL_SIGNING_KEY"),
+  calendar: System.get_env("GCAL_CALENDAR")
