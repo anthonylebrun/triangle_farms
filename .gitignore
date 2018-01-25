@@ -26,6 +26,9 @@ npm-debug.log
 # variables.
 /config/*.secret.exs
 
+# Ignore release builds
+/.deliver/releases
+
 # Useless OSX system files
 .DS_Store
 
