@@ -12,7 +12,7 @@ config :triangle_farms,
 # Configures the endpoint
 config :triangle_farms, TriangleFarmsWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "IjuJ9WbuxGS6n0C5/mKXrIZnLgxvoFpUvBBNh6f77W/mapWnUEEg+tFUZTtBXT9U",
+  secret_key_base: System.get_env("TF_SECRET_KEY_BASE"),
   render_errors: [view: TriangleFarmsWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: TriangleFarms.PubSub,
            adapter: Phoenix.PubSub.PG2]
