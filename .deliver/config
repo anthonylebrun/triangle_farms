@@ -4,12 +4,10 @@ BUILD_HOST="trianglefarmhub.com"
 BUILD_USER="deployer"
 BUILD_AT="/tmp/edeliver/$APP/builds"
 
-RELEASE_DIR="/tmp/edeliver/$APP/builds/_build/prod/rel/$APP"
-
-# prevent re-installing node modules; this defaults to "."
 GIT_CLEAN_PATHS="_build rel priv/static"
+RELEASE_DIR="/tmp/edeliver/$APP/builds/rel/$APP"
 
-PRODUCTION_HOSTS="104.236.239.121"
+PRODUCTION_HOSTS="trianglefarmhub.com"
 PRODUCTION_USER="deployer"
 DELIVER_TO="/home/deployer"
 
@@ -20,10 +18,10 @@ pre_erlang_clean_compile() {
     set -e # fail if any command fails (recommended)
     cd '$BUILD_AT' # enter the build directory on the build host (required)
     mkdir -p priv/static # required by the phoenix.digest task
+    cd assets
     npm install 
-
     ./node_modules/brunch/bin/brunch build --production 
-
+    cd ..
     # run your custom task
     APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
   "
