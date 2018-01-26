@@ -56,11 +56,3 @@ config :phoenix, :stacktrace_depth, 20
 #   database: "triangle_farms_dev",
 #   hostname: "localhost",
 #   pool_size: 10
-
-# Configure google api credentials
-config :triangle_farms, TriangleFarms.Calendar.EventAPI.Client,
-  email: System.get_env("GCAL_EMAIL"),
-  scope: System.get_env("GCAL_SCOPE"),
-  audience: System.get_env("GCAL_AUDIENCE"),
-  signing_key: System.get_env("GCAL_SIGNING_KEY"),
-  calendar: System.get_env("GCAL_CALENDAR")

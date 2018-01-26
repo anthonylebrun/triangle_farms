@@ -22,6 +22,14 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Configure google api credentials
+config :triangle_farms, TriangleFarms.Calendar.EventAPI.Client,
+  email: System.get_env("GCAL_EMAIL"),
+  scope: System.get_env("GCAL_SCOPE"),
+  audience: System.get_env("GCAL_AUDIENCE"),
+  signing_key: System.get_env("GCAL_SIGNING_KEY"),
+  calendar: System.get_env("GCAL_CALENDAR")
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
