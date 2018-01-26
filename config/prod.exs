@@ -20,6 +20,10 @@ config :triangle_farms, TriangleFarmsWeb.Endpoint,
   server: true,
   code_reloader: false
 
+# Configure google api credentials
+config :triangle_farms, TriangleFarms.Calendar.EventAPI.Client,
+  signing_key: "/home/deployer/.ssh/id_google"
+
 # Do not print debug messages in production
 config :logger, level: :info
 

@@ -14,6 +14,10 @@ config :triangle_farms, TriangleFarmsWeb.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 
+# Configure google api credentials
+config :triangle_farms, TriangleFarms.Calendar.EventAPI.Client,
+  signing_key: "/Users/plebrun/.ssh/id_google"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
