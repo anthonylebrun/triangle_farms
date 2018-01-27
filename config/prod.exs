@@ -63,3 +63,5 @@ config :logger, level: :info
 # start per endpoint:
 #
 #     config :triangle_farms, TriangleFarmsWeb.Endpoint, server: true
+
+import_config "prod.secret.exs"
